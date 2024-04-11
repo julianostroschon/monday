@@ -4,6 +4,7 @@ addEventListener("fetch", event => {
 /**
  * Respond with hello worker text
  * @param {Request} request
+ * @returns {Response}
  */
 async function handleRequest(request) {
   console.log({ body: request.body });
