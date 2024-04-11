@@ -26,8 +26,9 @@ export interface Env {
 }
 
 export default {
-	async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
-    console.log({ body: request.body });
+	async fetch(request: Request, _env: Env, _ctx: ExecutionContext): Promise<Response> {
+    const req = await request.json()
+    console.log({ req });
     return new Response('Hello worker!', {
       headers: { 'content-type': 'text/plain' },
     });
