@@ -1,0 +1,11 @@
+name = "saturday"
+main = "./src/index.js"
+# type = "javascript"
+
+account_id = "06f1bb906a6b81b2ce47f68c497027da"
+workers_dev = true
+# route = "/*"
+# zone_id = ""
+compatibility_date = "2024-04-11"
+[dev]
+  host = "localhost"
