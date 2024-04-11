@@ -1,21 +1,21 @@
 {
-  "private": true,
-  "name": "saturday",
-  "version": "1.0.0",
-  "description": "A template for kick starting a Cloudflare Workers project",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "format": "prettier --write '**/*.{js,css,json,md}'",
-    "deploy": "wrangler deploy src/",
-    "dev": "wrangler dev"
-  },
-  "author": "julianostroschon <julianostroschon@gmail.com>",
-  "license": "MIT",
-  "devDependencies": {
-    "prettier": "^1.18.2",
-    "@cloudflare/workers-types": "^4.20231016.0",
-    "typescript": "^5.0.4",
-    "wrangler": "^3.0.0"
-  }
+	"private": true,
+	"name": "saturday",
+	"version": "1.0.0",
+	"description": "A template for kick starting a Cloudflare Workers project",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"format": "prettier --write '**/*.{js,css,json,md}'",
+		"deploy": "wrangler deploy src/",
+		"dev": "wrangler dev"
+	},
+	"author": "julianostroschon <julianostroschon@gmail.com>",
+	"license": "MIT",
+	"devDependencies": {
+		"prettier": "^1.18.2",
+		"@cloudflare/workers-types": "^4.20231016.0",
+		"typescript": "^5.0.4",
+		"wrangler": "^3.0.0"
+	}
 }
