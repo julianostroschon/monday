@@ -5,17 +5,19 @@
 	"description": "A template for kick starting a Cloudflare Workers project",
 	"main": "index.js",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
+		"build": "tsc",
 		"format": "prettier --write '**/*.{js,css,json,md}'",
-		"deploy": "wrangler deploy src/",
-		"dev": "wrangler dev"
+		"deploy": "wrangler deploy src/index.ts",
+		"dev": "wrangler dev src/index.ts",
+		"test": "vitest run"
 	},
 	"author": "julianostroschon <julianostroschon@gmail.com>",
 	"license": "MIT",
 	"devDependencies": {
-		"prettier": "^1.18.2",
 		"@cloudflare/workers-types": "^4.20231016.0",
+		"prettier": "^1.18.2",
 		"typescript": "^5.0.4",
-		"wrangler": "^3.0.0"
+		"wrangler": "^3.0.0",
+		"vitest": "^1.5.0"
 	}
 }

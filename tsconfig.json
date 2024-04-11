@@ -5,8 +5,11 @@
 		"target": "esnext",
 		"lib": ["esnext"],
 		"strict": true,
-		"moduleResolution": "node",
-		"types": ["@cloudflare/workers-types"]
+		// "moduleResolution": "node",
+		"types": ["@cloudflare/workers-types"],
+    "rootDirs": ["./src"],
+    "outDir": "dist",
+    "baseUrl": ".",
 	},
 	"include": ["src"],
 	"exclude": ["node_modules", "dist", "test"]
