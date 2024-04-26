@@ -1,35 +1,32 @@
-/**
- * Welcome to Cloudflare Workers! This is your first worker.
- *
- * - Run `npm run dev` in your terminal to start a development server
- * - Open a browser tab at http://localhost:8787/ to see your worker in action
- * - Run `npm run deploy` to publish your worker
- *
- * Learn more at https://developers.cloudflare.com/workers/
- */
-
+import { sendMessage } from './domains/notify';
 export interface Env {
-	// Example binding to KV. Learn more at https://developers.cloudflare.com/workers/runtime-apis/kv/
-	// MY_KV_NAMESPACE: KVNamespace;
-	//
-	// Example binding to Durable Object. Learn more at https://developers.cloudflare.com/workers/runtime-apis/durable-objects/
-	// MY_DURABLE_OBJECT: DurableObjectNamespace;
-	//
-	// Example binding to R2. Learn more at https://developers.cloudflare.com/workers/runtime-apis/r2/
-	// MY_BUCKET: R2Bucket;
-	//
-	// Example binding to a Service. Learn more at https://developers.cloudflare.com/workers/runtime-apis/service-bindings/
-	// MY_SERVICE: Fetcher;
-	//
-	// Example binding to a Queue. Learn more at https://developers.cloudflare.com/queues/javascript-apis/
-	// MY_QUEUE: Queue;
+	CHAT_API_SECRET: string;
+	CHAT_API_URL: string;
+	team: {
+		[developer: string]: number
+	}
 }
 
 export default {
-	async fetch(request: Request, _env: Env, _ctx: ExecutionContext): Promise<Response> {
-    const req = await request.json()
-    console.log({ req });
-    return new Response('Hello worker!', {
+	async fetch(request: Request, env: Env, _ctx: ExecutionContext): Promise<Response> {
+
+		if (!request) {
+			return new Response('Missing request', { status: 400 });
+		}
+		const token = await sendMessage(env, request)
+		const init: RequestInit<RequestInitCfProperties> = {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({ token }),
+			cf: { scrapeShield: false } 
+		}
+		const url = env.CHAT_API_URL
+		console.log({ url })
+		const requi = await fetch(url, init)
+		console.log({ requi })
+    return new Response(JSON.stringify(token), {
       headers: { 'content-type': 'text/plain' },
     });
 	},

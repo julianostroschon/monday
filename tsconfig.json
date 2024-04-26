@@ -5,7 +5,7 @@
 		"target": "esnext",
 		"lib": ["esnext"],
 		"strict": true,
-		// "moduleResolution": "node",
+		"moduleResolution":"node",
 		"types": ["@cloudflare/workers-types"],
     "rootDirs": ["./src"],
     "outDir": "dist",
