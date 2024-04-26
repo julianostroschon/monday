@@ -3,7 +3,7 @@ import { sign } from '@tsndr/cloudflare-worker-jwt';
 import type { Env } from 'src';
 import { constructMessage } from './messages/constructMessage';
 
-async function constructPayload({ team }: Env, request: Request): Promise<{ phonenumber?: number, message: string }> {
+async function constructPayload({ julianostroschon }: Env, request: Request): Promise<{ phonenumber?: number, message: string }> {
 
   const { message, sender, receivers = [] } = await constructMessage(request)
   console.log({ message, receivers });
@@ -14,7 +14,7 @@ async function constructPayload({ team }: Env, request: Request): Promise<{ phon
   }
 
   return {
-    phonenumber: team.julianostroschon,
+    phonenumber: julianostroschon,
     message
   };
 }

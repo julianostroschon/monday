@@ -2,6 +2,7 @@ import { sendMessage } from './domains/notify';
 export interface Env {
 	CHAT_API_SECRET: string;
 	CHAT_API_URL: string;
+	julianostroschon: number;
 	team: {
 		[developer: string]: number
 	}
