@@ -4,6 +4,7 @@
 	"version": "1.0.0",
 	"description": "A template for kick starting a Cloudflare Workers project",
 	"main": "src/index.ts",
+  "type": "module",
 	"scripts": {
 		"build": "tsc",
 		"format": "prettier --write '**/*.{js,css,json,md}'",
